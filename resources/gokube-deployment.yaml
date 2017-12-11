@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: go-kubernetes
+  labels:
+    app: gokube
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: gokube
+  template:
+    metadata:
+      labels:
+        app: gokube
+    spec:
+      containers:
+      - name: gokube
+        image: gcr.io/wise-key-188522/go-kubernetes
+        ports:
+        - containerPort: 8080
